@@ -22,7 +22,8 @@ import {
     getASinglePublicationOnBasisTitleConference,
     getASinglePublicationOnBasisTitleJournal,
     getASinglePublicationOnBasisTitlePatents,
-    getASinglePublicationOnBasisTitleWorkshops
+    getASinglePublicationOnBasisTitleWorkshops,
+    getASingleProjectOnBasisProjects
     
 } from '../controller/Admin/actions/Admin/index.js';
 import AdminAutheatioaction from '../middleware/authFromTokenForAdmin/index.js'
@@ -62,6 +63,7 @@ router.delete('/DeletePublication/Patent/:title', DeletePublicationPatents);
 
 
 //This is for project
+router.get('/getASingleProjects/:title',getASingleProjectOnBasisProjects);
 router.post('/createProject', createProjects);
 router.put('/updateProject/:title', updateProject);
 router.delete('/DeleteProject/:title', DeleteProject);

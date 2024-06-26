@@ -513,6 +513,21 @@ export const createProjects = (async(req,res)=>{
     }
 })
 
+export const getASingleProjectOnBasisProjects = (async(req,res)=>{
+  try {
+    await connectClient();
+    const database = User.db("Teachings");
+    const postData = database.collection("projects");
+    const titleFilter = req.params.title;   
+    console.log(titleFilter) 
+    const DataForUpdate = await postData.find({ projectTitle: { $regex: titleFilter, $options: "i" } }).toArray();
+    console.log(DataForUpdate)
+    res.status(200).send({ DataForUpdate: DataForUpdate });
+  } catch (error) {
+      res.status(500).send({'message':error})
+  }
+  
+})
 
 export const updateProject = (async(req,res)=>{
     try {
