@@ -32,7 +32,7 @@ const journalSchema = new Schema({
   pages: {
     type: String,
     required: false,
-    default: '',
+    default:"",
     description: 'must be a number and is required'
   },
   publishedOn: {
@@ -43,7 +43,7 @@ const journalSchema = new Schema({
   DOI: {
     type: String,
     required: false,
-    default: '',
+    default:"",
     description: 'must be a string and is required'
   },
   IF: {
@@ -55,13 +55,13 @@ const journalSchema = new Schema({
   SJR: {
     type: String,
     required: false,
-    default: '',
+    default:"",
     description: 'must be a string and is required'
   },
   additionalInfo: {
     type: String,
     required: false,
-    default: '',
+    default:"",
     description: 'must be a string and is required'
   }
 }, {

@@ -25,7 +25,7 @@ const conferenceSchema = new Schema({
   },
   location: {
     type: String,
-    default: '', // Default value is an empty string
+    default:"", // Default value is an empty string
     description: 'must be a string'
   },
   date: {
@@ -35,22 +35,22 @@ const conferenceSchema = new Schema({
   },
   ranking: {
     type: String,
-    default: '', // Default value is an empty string
+    default:"", // Default value is an empty string
     description: 'must be a string'
   },
   DOI: {
     type: String,
-    default: '', // Default value is an empty string
+    default:"", // Default value is an empty string
     description: 'must be a string'
   },
   pages: {
     type: String,
-    default: '', // Default value is an empty string
+    default:"", // Default value is an empty string
     description: 'must be a string'
   },
   additionalInfo: {
     type: String,
-    default: '', // Default value is an empty string
+    default:"", // Default value is an empty string
     description: 'must be a string'
   }
 }, {

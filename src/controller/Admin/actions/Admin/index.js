@@ -136,6 +136,84 @@ export const createPublicationWorkshops = (async(req,res)=>{
   }
 })
 
+// This is for get in Publication By title Admin which have collections to update are Journal,Conference,Workshops,Patents,Books
+
+
+export const getASinglePublicationOnBasisTitleBooks = (async(req,res)=>{
+  try {
+      await connectClient();
+      const database = User.db("Paper");
+      const postData = database.collection("Books");
+      const titleFilter = req.params.title;    
+      const DataForUpdate = await postData.find({ title: { $regex: titleFilter, $options: "i" } }).toArray();
+      console.log(DataForUpdate)
+      res.status(200).send({ DataForUpdate: DataForUpdate });     
+  } catch (error) {
+      res.status(500).send({'message':error})
+  }
+})
+
+
+export const getASinglePublicationOnBasisTitleConference = (async(req,res)=>{
+  try {
+    await connectClient();
+    const database = User.db("Paper");
+    const postData = database.collection("Conference");
+    const titleFilter = req.params.title;    
+    const DataForUpdate = await postData.find({ title: { $regex: titleFilter, $options: "i" } }).toArray();
+    console.log(DataForUpdate)
+    res.status(200).send({ DataForUpdate: DataForUpdate });
+  } catch (error) {
+      res.status(500).send({'message':error})
+  }
+})
+
+
+export const getASinglePublicationOnBasisTitleJournal = (async(req,res)=>{
+  try {
+    await connectClient();
+    const titleFilter = req.params.title;    
+    const database = User.db("Paper");
+    const postData = database.collection("Journals");
+    const DataForUpdate = await postData.find({ title: { $regex: titleFilter, $options: "i" } }).toArray();
+    console.log(DataForUpdate)
+    res.status(200).send({ DataForUpdate: DataForUpdate });
+  } catch (error) {
+      res.status(500).send({'message':error})
+  }
+})
+
+
+export const getASinglePublicationOnBasisTitlePatents = (async(req,res)=>{
+  try {
+    await connectClient();
+    const database = User.db("Paper");
+    const postData = database.collection("Patents");
+    const titleFilter = req.params.title;    
+    const DataForUpdate = await postData.find({ title: { $regex: titleFilter, $options: "i" } }).toArray();
+    console.log(DataForUpdate)
+    res.status(200).send({ DataForUpdate: DataForUpdate });
+  } catch (error) {
+      res.status(500).send({'message':error})
+  }
+})
+
+
+export const getASinglePublicationOnBasisTitleWorkshops = (async(req,res)=>{
+  try {
+    await connectClient();
+    const database = User.db("Paper");
+    const postData = database.collection("Workshops");
+    const titleFilter = req.params.title;    
+    const DataForUpdate = await postData.find({ title: { $regex: titleFilter, $options: "i" } }).toArray();
+    console.log(DataForUpdate)
+    res.status(200).send({ DataForUpdate: DataForUpdate });
+  } catch (error) {
+      res.status(500).send({'message':error})
+  }
+  
+})
+
 
 
 // This is for updating in Publication By Admin which have collections are Journal,Conference,Workshops,Patents,Books
@@ -144,9 +222,12 @@ export const UpdatePublicationBooks = (async(req,res)=>{
   try {
       await connectClient();
       const titleFilter = req.params.title;
-      const BooksJson = new Books(req.body);
+      console.log(titleFilter)
       const database = User.db("Paper");
       const postData = database.collection("Books");
+      const BooksJson = new Books(req.body);
+ 
+
       const result = await postData.findOneAndUpdate(
         { title: { $regex: titleFilter, $options: "i" } },
         {
@@ -168,7 +249,7 @@ export const UpdatePublicationBooks = (async(req,res)=>{
       console.log(result)
   
   
-     res.status(200).send({ updateData: result });
+     
   } catch (error) {
       res.status(500).send({'message':error})
   }

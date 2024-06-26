@@ -27,12 +27,12 @@ const WorkshopsSchema = new Schema({
   },
   pages: {
     type: String,
-    default: null,
+    default:"",
     description: 'must be an integer or null'
   },
   location: {
     type: String,
-    default: '',
+    default:"",
     description: 'must be a string'
   },
   year: {
@@ -44,22 +44,22 @@ const WorkshopsSchema = new Schema({
   weblink: {
     type: String,
     required: true,
-    default: '',
+    default:"",
     description: 'must be a string and will be the URL'
   },
   ranking: {
     type: String,
-    default: '',
+    default:"",
     description: 'must be a string'
   },
   awardedBy: {
     type: String,
-    default: '',
+    default:"",
     description: 'must be a string'
   },
   additionalInfo: {
     type: String,
-    default: '',
+    default:"",
     description: 'must be a string'
   }
 });

@@ -17,7 +17,13 @@ import {
     DeletePublicationPatents,
     DeletePublicationJournal,
     DeletePublicationBooks,
-    DeletePublicationWorkshops
+    DeletePublicationWorkshops,
+    getASinglePublicationOnBasisTitleBooks,
+    getASinglePublicationOnBasisTitleConference,
+    getASinglePublicationOnBasisTitleJournal,
+    getASinglePublicationOnBasisTitlePatents,
+    getASinglePublicationOnBasisTitleWorkshops
+    
 } from '../controller/Admin/actions/Admin/index.js';
 import AdminAutheatioaction from '../middleware/authFromTokenForAdmin/index.js'
 
@@ -34,6 +40,12 @@ router.post('/createPublication/Books', createPublicationBooks);
 router.post('/createPublication/Conference', createPublicationConference);
 router.post('/createPublication/Workshops', createPublicationWorkshops)
 router.post('/createPublication/Patent', createPublicationPatents);
+//Get only one document by title
+router.get('/getASinglePublication/Journal/:title',getASinglePublicationOnBasisTitleJournal);
+router.get('/getASinglePublication/Books/:title',getASinglePublicationOnBasisTitleBooks);
+router.get('/getASinglePublication/Conference/:title',getASinglePublicationOnBasisTitleConference);
+router.get('/getASinglePublication/Workshops/:title',getASinglePublicationOnBasisTitleWorkshops);
+router.get('/getASinglePublication/Patent/:title',getASinglePublicationOnBasisTitlePatents);
 //for update
 router.put('/UpdatePublication/Journal/:title', UpdatePublicationJournal);
 router.put('/UpdatePublication/Books/:title', UpdatePublicationBooks);

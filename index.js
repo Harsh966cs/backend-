@@ -4,9 +4,8 @@ import {connect} from './src/config/db/index.js';
 import Admin from './src/routes/Admin.Routes.js'
 import SubAdmin from './src/routes/SubAdminRoutes.Routes.js'
 import User from  '../backend/src/routes/User.Routes.js'
-
 import cors from 'cors';
-import mongoose from 'mongoose';
+
 
 
 

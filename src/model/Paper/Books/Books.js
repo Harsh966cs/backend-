@@ -20,12 +20,12 @@ const BooksSchema = new Schema({
   },
   additionalInfo: {
     type: String,
-    default: null,
+    default:"",
     description: 'Must be a string'
   },
   ISBN: {
     type: String,
-    default: '',
+    default:"",
     description: 'Must be a string and will follow the ISBN pattern'
   },
   volume: {
@@ -35,7 +35,7 @@ const BooksSchema = new Schema({
   },
   pages: {
     type: String,
-    default: null,
+    default: "",
     description: 'Must be a string or null'
   },
   publishingDate: {
