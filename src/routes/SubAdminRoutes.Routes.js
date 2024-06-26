@@ -34,7 +34,6 @@ router.use(bodyParser.urlencoded({extended:false}));
 router.use(bodyParser.json());
 
 
- router.get('/HelloWorld',HelloWorld);
 
 //This is for Publications
 router.post('/createPublication/Journal', createPublicationJournal);
