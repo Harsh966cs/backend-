@@ -18,13 +18,15 @@ import {
     DeletePublicationJournal,
     DeletePublicationBooks,
     DeletePublicationWorkshops,
-    getASinglePublicationOnBasisTitleBooks,
-    getASinglePublicationOnBasisTitleConference,
-    getASinglePublicationOnBasisTitleJournal,
-    getASinglePublicationOnBasisTitlePatents,
-    getASinglePublicationOnBasisTitleWorkshops,
-    getASingleProjectOnBasisProjects
-    
+    createEvent,
+    updateEvent,
+    deleteEvent,
+    createNews,
+    updateNews,
+    deleteNews,
+    createAnnouncement,
+    updateAnnouncement,
+    deleteAnnouncement
 } from '../controller/Admin/actions/Admin/index.js';
 import AdminAutheatioaction from '../middleware/authFromTokenForAdmin/index.js'
 
@@ -41,12 +43,6 @@ router.post('/createPublication/Books', createPublicationBooks);
 router.post('/createPublication/Conference', createPublicationConference);
 router.post('/createPublication/Workshops', createPublicationWorkshops)
 router.post('/createPublication/Patent', createPublicationPatents);
-//Get only one document by title
-router.get('/getASinglePublication/Journal/:title',getASinglePublicationOnBasisTitleJournal);
-router.get('/getASinglePublication/Books/:title',getASinglePublicationOnBasisTitleBooks);
-router.get('/getASinglePublication/Conference/:title',getASinglePublicationOnBasisTitleConference);
-router.get('/getASinglePublication/Workshops/:title',getASinglePublicationOnBasisTitleWorkshops);
-router.get('/getASinglePublication/Patent/:title',getASinglePublicationOnBasisTitlePatents);
 //for update
 router.put('/UpdatePublication/Journal/:title', UpdatePublicationJournal);
 router.put('/UpdatePublication/Books/:title', UpdatePublicationBooks);
@@ -63,12 +59,26 @@ router.delete('/DeletePublication/Patent/:title', DeletePublicationPatents);
 
 
 //This is for project
-router.get('/getASingleProjects/:title',getASingleProjectOnBasisProjects);
 router.post('/createProject', createProjects);
 router.put('/updateProject/:title', updateProject);
 router.delete('/DeleteProject/:title', DeleteProject);
 router.get('/helloWorld', getHelloWorld);
 
+// This is for events
 
+router.post('/createEvent', createEvent);
+router.put('/updateEvent/:id', updateEvent);
+router.delete('/deleteEvent/:id', deleteEvent);
+
+// This is for announcements
+
+router.post('/createAnnouncement', createAnnouncement);
+router.put('/updateAnnouncement/:id', updateAnnouncement);
+router.delete('/deleteAnnouncement/:id', deleteAnnouncement);
+
+// This is for news
+router.post('/createNews', createNews);
+router.put('/updateNews/:id', updateNews);
+router.delete('/deleteNews/:id', deleteNews);
 
 export default router;
