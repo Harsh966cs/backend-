@@ -1,15 +1,19 @@
 import admin from 'firebase-admin';
 import { getAuth } from 'firebase-admin/auth';
-import { initializeApp } from 'firebase-admin/app';
 
+import dotenv from "dotenv";
+import { initializeApp } from "firebase/app";
+
+dotenv.config();
 // Initialize the Firebase Admin SDK
 const firebaseConfigForSubAdmin = {
-  apiKey: "AIzaSyCo6n1XgZHAfqgagXzybco6Sy6WDc7vQ7s",
-  authDomain: "newsapp-cc357.firebaseapp.com",
-  projectId: "newsapp-cc357",
-  storageBucket: "newsapp-cc357.appspot.com",
-  messagingSenderId: "902184640546",
-  appId: "1:902184640546:web:42fa52c667771f9b7bea7b"
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.FIREBASE_APP_ID,
+  measurementId: process.env.FIREBASE_MEASUREMENT_ID,
 };
 
 
@@ -45,3 +49,4 @@ const authentication = async (req, res, next) => {
 };
 
 export default authentication;
+
